@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Medical Appointment Booking Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Medical Appointment Booking Website repository! This project aims to provide a seamless experience for managing medical appointments, accessing health information, and reading user reviews.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Home](#home)
+- [Health Blog](#health-blog)
+- [Appointments](#appointments)
+- [Reviews](#reviews)
+- [Getting Started](#getting-started)
+- [License](#license)
 
-### `npm start`
+## Home
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The **Home** tab serves as the main landing page for the website.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Health Blog
 
-### `npm test`
+(Pending) The **Health Blog** tab offers:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Articles on various health and wellness topics.
+- Tips for maintaining a healthy lifestyle.
+- Updates on medical research and news.
 
-### `npm run build`
+Stay informed with the latest health information.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Appointments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The **Appointments** tab includes functionalities to:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Book an Appointment:** Choose a date, time, and provider.
+- **View Upcoming Appointments:** Check your scheduled appointments.
+- **Cancel or Reschedule:** Modify your appointments as needed.
 
-### `npm run eject`
+Manage your health appointments easily and efficiently.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Reviews
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The **Reviews** tab allows users to:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Read and leave reviews for healthcare providers.
+- Rate appointment experiences.
+- Help others make informed decisions with your feedback.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+To get started with the project, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/krAlena/grihf-frontend_capstone_starter_code.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## License
+This project is licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for using our Medical Appointment Booking Website. We’re committed to providing you with the best experience possible. If you have any feedback, don’t hesitate to get in touch!

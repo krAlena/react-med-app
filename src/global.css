@@ -1,0 +1,41 @@
+body {
+  margin: 0px
+}
+:root {
+    --color-white: rgba(255, 255, 255, 1);
+    --color-primary: rgba(9, 44, 76, 1);
+    --color-grey-5: #E0E0E0;
+    --color-grey-3: rgba(130, 130, 130, 1);
+    --color-grey-1: rgba(51, 51, 51, 1);
+    --color-secondary: rgba(242, 153, 74, 1);
+    --color-info: rgba(47, 128, 237, 1);
+    --color-grey-2: rgba(79, 79, 79, 1);
+    --color-white: rgba(255, 255, 255, 1);
+    --color-primary: rgba(9, 44, 76, 1);
+    --color-error: rgba(235, 87, 87, 1);
+    --color-grey-4: rgba(189, 189, 189, 1);
+    --heading-h4-font-family: "Inter", Helvetica;
+    --heading-h4-font-weight: 700;
+    --heading-h4-font-size: 32px;
+    --heading-h4-letter-spacing: 0px;
+    --heading-h4-line-height: 35.20000076293945px;
+    --heading-h4-font-style: normal;
+    --text-normal-font-family: "Inter", Helvetica;
+    --text-normal-font-weight: 400;
+    --text-normal-font-size: 16px;
+    --text-normal-letter-spacing: 0px;
+    --text-normal-line-height: 22.399999618530273px;
+    --text-normal-font-style: normal;
+    --text-normal-bold-font-family: "Inter", Helvetica;
+    --text-normal-bold-font-weight: 700;
+    --text-normal-bold-font-size: 16px;
+    --text-normal-bold-letter-spacing: 0px;
+    --text-normal-bold-line-height: 22.399999618530273px;
+    --text-normal-bold-font-style: normal;
+    --text-small-bold-font-family: "Inter", Helvetica;
+    --text-small-bold-font-weight: 700;
+    --text-small-bold-font-size: 14px;
+    --text-small-bold-letter-spacing: 0px;
+    --text-small-bold-line-height: 19.600000381469727px;
+    --text-small-bold-font-style: normal;
+  }
