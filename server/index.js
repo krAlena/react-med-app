@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const connectToMongo = require('./db');
-const csrf = require("csurf");
 const app = express();
 
 
@@ -21,7 +20,7 @@ connectToMongo();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use(csrf({cookie: true}))
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

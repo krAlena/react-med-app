@@ -19,7 +19,9 @@ const Sign_Up = () => {
         const response = await fetch(`${API_URL}/api/auth/register`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json; charset=utf-8",
+                "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
+                "access-control-allow-origin":"*"
             },
             body: JSON.stringify({
                 name: name,
@@ -58,11 +60,12 @@ const Sign_Up = () => {
           const response = await fetch('https://zubrytskaaly-8081.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/api/auth/register', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              // Add any other headers required by the server
+              "Content-Type": "application/json; charset=utf-8",
+              "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
+              "access-control-allow-origin":"*"
             },
             body: JSON.stringify({
-                name: name,
+                name: "Alona",
                 email: 'kr.alena93@gmail.com',
                 password: password,
                 phone: phone,
