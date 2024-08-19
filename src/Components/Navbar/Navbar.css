@@ -1,4 +1,4 @@
-.navigation-bar {
+  .navigation-bar {
     position: relative;
     width: 1440px;
     margin: auto;
@@ -7,6 +7,10 @@
     overflow: hidden;
     border: 0px none;
     border-color: var(--color-primary);
+  }
+
+  .navigation-bar a{
+    text-decoration: none;
   }
   
   .navigation-bar .logo-part {

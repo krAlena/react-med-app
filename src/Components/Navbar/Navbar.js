@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import '../../global.css';
+import { Link } from "react-router-dom";
 
 // import '../../public/img/health_care.png';
 
@@ -15,7 +16,7 @@ const Navbar = () => {
       <div className="tabs">
         <div className="overlap-group">
           <div className="tab active">
-            <div className="section">Home</div>
+            <Link to="/"><div className="section">Home</div></Link>
           </div>
           <div className="tab">
             <div className="section">Appointments</div>
@@ -29,8 +30,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="login-btns">
-        <div className="primary"><div className="primary-2">Login</div></div>
-        <div className="primary-wrapper"><div className="primary-2">Sign-up</div></div>
+        <Link to="/login">
+            <div className="primary"><div className="primary-2">Login</div></div>
+        </Link>
+        <Link to="/signup">
+            <div className="primary-wrapper"><div className="primary-2">Sign-up</div></div>
+        </Link>
       </div>
     </div>
   );
