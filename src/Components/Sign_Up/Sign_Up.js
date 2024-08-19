@@ -13,7 +13,7 @@ const Sign_Up = () => {
     const navigate = useNavigate(); // Navigation hook from react-router
     
     // Function to handle form submission
-    const register = async (e) => {
+    const registerOld = async (e) => {
         e.preventDefault(); // Prevent default form submission
         // API Call to register user
         const response = await fetch(`${API_URL}/api/auth/register`, {
@@ -27,6 +27,7 @@ const Sign_Up = () => {
                 password: password,
                 phone: phone,
             }),
+            mode: 'no-cors',
         });
         const json = await response.json(); // Parse the response JSON
         if (json.authtoken) {
@@ -50,6 +51,38 @@ const Sign_Up = () => {
         }
     };
 
+
+    const register = async (event) => {
+        event.preventDefault();
+        try {
+          const response = await fetch('https://zubrytskaaly-8081.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/api/auth/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              // Add any other headers required by the server
+            },
+            body: JSON.stringify({
+                name: name,
+                email: 'kr.alena93@gmail.com',
+                password: password,
+                phone: phone,
+            }),
+            mode: 'no-cors',
+          });
+          if (!response.ok) {
+            if (response.status === 403) {
+              throw new Error('Forbidden: You do not have permission to access this resource.');
+            } else {
+              throw new Error(`Error: ${response.statusText}`);
+            }
+          }
+          const data = await response.json();
+          // Handle successful response
+          console.log('Registration successful:', data);
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+        }
+      };
     return (
         <div className="sign-up">
         <div className="div">
