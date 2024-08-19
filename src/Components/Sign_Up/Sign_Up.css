@@ -208,6 +208,13 @@
     margin-top: 62px;
   }
 
+  .sign-up .err {
+    padding-left: 24px;
+    width: 320px;
+    margin-top: 12px;
+    color: var(--color-error);
+  }
+
   .sign-up .form-content {
     align-items: center;
     display: flex;

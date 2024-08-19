@@ -12,16 +12,43 @@ const Sign_Up = () => {
     const [showerr, setShowerr] = useState(''); // State to show error messages
     const navigate = useNavigate(); // Navigation hook from react-router
     
-    // Function to handle form submission
-    const registerOld = async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        // API Call to register user
-        const response = await fetch(`${API_URL}/api/auth/register`, {
-            method: "POST",
+
+    const checkIsPasswordValid = (event) => {
+        if (password.length < 8) {
+            setShowerr('Your password is too short. (It must be at least 8 characters)')
+        }
+        else {
+            clearErr()
+        }
+    }
+
+    const checkIsEmailValid = (event) => {
+        var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
+        let isEmailValid = String(email).search (filter) != -1;
+        if (!isEmailValid) {
+            setShowerr('Please, check your email.')
+        }
+        else {
+            clearErr()
+        }
+    }
+
+    const clearErr = () => {
+        setShowerr('')
+    }
+
+    const handlePasswordChange = (event) => {
+        clearErr();
+        setPassword(event.target.value);
+    }
+
+    const register = async (event) => {
+        event.preventDefault();
+        try {
+          const response = await fetch(`${API_URL}/api/auth/register`, {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
-                "access-control-allow-origin":"*"
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 name: name,
@@ -29,59 +56,35 @@ const Sign_Up = () => {
                 password: password,
                 phone: phone,
             }),
-            mode: 'no-cors',
-        });
-        const json = await response.json(); // Parse the response JSON
-        if (json.authtoken) {
-            // Store user data in session storage
-            sessionStorage.setItem("auth-token", json.authtoken);
-            sessionStorage.setItem("name", name);
-            sessionStorage.setItem("phone", phone);
-            sessionStorage.setItem("email", email);
-            // Redirect user to home page
-            console.log('json.authtoken')
-            navigate("/");
-            window.location.reload(); // Refresh the page
-        } else {
-            if (json.errors) {
-                for (const error of json.errors) {
-                    setShowerr(error.msg); // Show error messages
-                }
-            } else {
-                setShowerr(json.error);
-            }
-        }
-    };
-
-
-    const register = async (event) => {
-        event.preventDefault();
-        try {
-          const response = await fetch('https://zubrytskaaly-8081.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/api/auth/register', {
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json; charset=utf-8",
-              "access-control-allow-methods": "PUT, GET, POST, DELETE, OPTIONS",
-              "access-control-allow-origin":"*"
-            },
-            body: JSON.stringify({
-                name: "Alona",
-                email: 'kr.alena93@gmail.com',
-                password: password,
-                phone: phone,
-            }),
-            mode: 'no-cors',
           });
-          if (!response.ok) {
-            if (response.status === 403) {
-              throw new Error('Forbidden: You do not have permission to access this resource.');
-            } else {
-              throw new Error(`Error: ${response.statusText}`);
-            }
-          }
-          const data = await response.json();
+        //   if (!response.ok) {
+        //     if (response.status === 403) {
+        //       throw new Error('Forbidden: You do not have permission to access this resource.');
+        //     } else {
+        //       throw new Error(`Error: ${response.statusText}`);
+        //     }
+        //   }
+
           // Handle successful response
-          console.log('Registration successful:', data);
+          const json = await response.json(); // Parse the response JSON
+          if (json.authtoken) {
+              // Store user data in session storage
+              sessionStorage.setItem("auth-token", json.authtoken);
+              sessionStorage.setItem("name", name);
+              sessionStorage.setItem("phone", phone);
+              sessionStorage.setItem("email", email);
+              navigate("/");
+              window.location.reload(); // Refresh the page
+          } else {
+              if (json.errors) {
+                  for (const error of json.errors) {
+                      setShowerr("Error: " + error.msg); // Show error messages
+                  }
+              } else {
+                setShowerr("Error: " + json.error);
+              }
+          }
+
         } catch (error) {
           console.error('There was a problem with the fetch operation:', error);
         }
@@ -100,7 +103,9 @@ const Sign_Up = () => {
                   <div className="overlap-group">
                       <div className="input-label">
                           <div className="form">
-                              <div className="placeholder"><div className="input-text">Select role</div></div>
+                              {/* <div className="placeholder"><div className="input-text">Select role</div></div> */}
+                              <input className="input-text-wrapper" placeholder="Select role" type="text" id="name" value="Patient"/>
+                      
                           </div>
                           <div className="label-sample-wrapper">
                               <div className="label-sample">Role</div>
@@ -110,7 +115,7 @@ const Sign_Up = () => {
                   </div>
                   <div className="input-label">
                       <div className="form">
-                        <input className="input-text-wrapper" placeholder="Enter your name" type="text" id="name" />
+                        <input className="input-text-wrapper" placeholder="Enter your name" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
                       </div>
                       <div className="label-sample-wrapper">
                           <label className="label-sample" for="name">Name</label>
@@ -126,23 +131,23 @@ const Sign_Up = () => {
                   </div>
                   <div className="input-label"> 
                       <div className="form">
-                          <input className="input-text-wrapper" required placeholder="Enter your email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}" name="email" id="email" aria-describedby="helpId"/>
+                          <input className="input-text-wrapper" required placeholder="Enter your email" type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={checkIsEmailValid} aria-describedby="helpId"/>
                       </div>
                       <div className="label-sample-wrapper">
-                          <label className="label-sample" for="email" value={email} onChange={(e) => setEmail(e.target.value)}>Email</label>
+                          <label className="label-sample" for="email">Email</label>
                       </div>
-                      {showerr && <div classNameName="err" style={{ color: 'red' }}>{showerr}</div>}
                   </div>
                   <div className="input-label"> 
                       <div className="form">
                           <input className="input-text-wrapper" required placeholder="Enter your password" type="password" name="password" id="password" 
-                            aria-describedby="helpId" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            aria-describedby="helpId" value={password} onChange={handlePasswordChange} onBlur={checkIsPasswordValid}/>
                       </div>
                       <div className="label-sample-wrapper">
                           <label className="label-sample" for="password">Password</label>
                       </div>                    
                       <img className="input-right-icon" src="/img/hide.svg" />
                   </div>
+                  {showerr && <div className="err">{showerr}</div>}
                   <div className="btns-group">
                       <button type="submit" className="btn small-button button-submit">Submit</button>
                       <button type="reset" className="btn small-button button-reset">Reset</button>
