@@ -14,6 +14,12 @@ body {
     --color-primary: rgba(9, 44, 76, 1);
     --color-error: rgba(235, 87, 87, 1);
     --color-grey-4: rgba(189, 189, 189, 1);
+    --heading-h1-font-family: "Inter", Helvetica;
+    --heading-h1-font-weight: 700;
+    --heading-h1-font-size: 56px;
+    --heading-h1-letter-spacing: 0px;
+    --heading-h1-line-height: 61.599998474121094px;
+    --heading-h1-font-style: normal;
     --heading-h4-font-family: "Inter", Helvetica;
     --heading-h4-font-weight: 700;
     --heading-h4-font-size: 32px;
@@ -38,4 +44,10 @@ body {
     --text-small-bold-letter-spacing: 0px;
     --text-small-bold-line-height: 19.600000381469727px;
     --text-small-bold-font-style: normal;
+    --text-medium-bold-font-family: "Inter", Helvetica;
+    --text-medium-bold-font-weight: 700;
+    --text-medium-bold-font-size: 18px;
+    --text-medium-bold-letter-spacing: 0px;
+    --text-medium-bold-line-height: 25.200000762939453px;
+    --text-medium-bold-font-style: normal;
   }
