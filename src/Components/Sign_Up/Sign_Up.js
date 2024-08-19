@@ -1,65 +1,115 @@
-import React from "react"; // Importing the necessary modules from React library
+import React, { useState } from "react"; // Importing the necessary modules from React library
 import "./Sign_Up.css"; 
+import { Link, useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 const Sign_Up = () => {
+    // State variables using useState hook
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [showerr, setShowerr] = useState(''); // State to show error messages
+    const navigate = useNavigate(); // Navigation hook from react-router
+    
+    // Function to handle form submission
+    const register = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+        // API Call to register user
+        const response = await fetch(`${API_URL}/api/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+                phone: phone,
+            }),
+        });
+        const json = await response.json(); // Parse the response JSON
+        if (json.authtoken) {
+            // Store user data in session storage
+            sessionStorage.setItem("auth-token", json.authtoken);
+            sessionStorage.setItem("name", name);
+            sessionStorage.setItem("phone", phone);
+            sessionStorage.setItem("email", email);
+            // Redirect user to home page
+            console.log('json.authtoken')
+            navigate("/");
+            window.location.reload(); // Refresh the page
+        } else {
+            if (json.errors) {
+                for (const error of json.errors) {
+                    setShowerr(error.msg); // Show error messages
+                }
+            } else {
+                setShowerr(json.error);
+            }
+        }
+    };
+
     return (
-        <div class="sign-up">
-        <div class="div">
-          <div class="text-wrapper">Sign up</div>
-          <div class="frame">
-            <div class="text-wrapper-2">Already a member?</div>
-            <div class="text-wrapper-3">Login</div>
+        <div className="sign-up">
+        <div className="div">
+          <div className="text-wrapper">Sign up</div>
+          <div className="frame">
+            <div className="text-wrapper-2">Already a member?</div>
+            <div className="text-wrapper-3">Login</div>
           </div>
           
-          <div class="form-parent">
-              <form class="form-content">
-                  <div class="overlap-group">
-                      <div class="input-label">
-                          <div class="form">
-                              <div class="placeholder"><div class="input-text">Select role</div></div>
+          <div className="form-parent">
+              <form className="form-content" method="POST" onSubmit={register}>
+                  <div className="overlap-group">
+                      <div className="input-label">
+                          <div className="form">
+                              <div className="placeholder"><div className="input-text">Select role</div></div>
                           </div>
-                          <div class="label-sample-wrapper">
-                              <div class="label-sample">Role</div>
+                          <div className="label-sample-wrapper">
+                              <div className="label-sample">Role</div>
                           </div>
                       </div>
-                      <img class="input-right-icon" src="/img/expand_arrow.svg" />
+                      <img className="input-right-icon" src="/img/expand_arrow.svg" />
                   </div>
-                  <div class="input-label">
-                      <div class="form">
-                        <input class="input-text-wrapper" placeholder="Enter your name" type="text" id="name" />
+                  <div className="input-label">
+                      <div className="form">
+                        <input className="input-text-wrapper" placeholder="Enter your name" type="text" id="name" />
                       </div>
-                      <div class="label-sample-wrapper">
-                          <label class="label-sample" for="name">Name</label>
-                      </div>
-                  </div>
-                  <div class="input-label">
-                      <div class="form">
-                          <input class="input-text-wrapper" placeholder="Enter your phone number" type="text" id="phone" />
-                      </div>
-                      <div class="label-sample-wrapper">
-                          <label class="label-sample" for="phone">Phone</label>
+                      <div className="label-sample-wrapper">
+                          <label className="label-sample" for="name">Name</label>
                       </div>
                   </div>
-                  <div class="input-label"> 
-                      <div class="form">
-                          <input class="input-text-wrapper" required placeholder="Enter your email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}" name="email" id="email" aria-describedby="helpId"/>
+                  <div className="input-label">
+                      <div className="form">
+                          <input className="input-text-wrapper" placeholder="Enter your phone number" type="text" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
                       </div>
-                      <div class="label-sample-wrapper">
-                          <label class="label-sample" for="email">Email</label>
+                      <div className="label-sample-wrapper">
+                          <label className="label-sample" for="phone">Phone</label>
                       </div>
                   </div>
-                  <div class="input-label"> 
-                      <div class="form">
-                          <input class="input-text-wrapper" required placeholder="Enter your password" type="password" name="password" id="password" aria-describedby="helpId"/>
+                  <div className="input-label"> 
+                      <div className="form">
+                          <input className="input-text-wrapper" required placeholder="Enter your email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}" name="email" id="email" aria-describedby="helpId"/>
                       </div>
-                      <div class="label-sample-wrapper">
-                          <label class="label-sample" for="password">Password</label>
+                      <div className="label-sample-wrapper">
+                          <label className="label-sample" for="email" value={email} onChange={(e) => setEmail(e.target.value)}>Email</label>
+                      </div>
+                      {showerr && <div classNameName="err" style={{ color: 'red' }}>{showerr}</div>}
+                  </div>
+                  <div className="input-label"> 
+                      <div className="form">
+                          <input className="input-text-wrapper" required placeholder="Enter your password" type="password" name="password" id="password" 
+                            aria-describedby="helpId" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                      </div>
+                      <div className="label-sample-wrapper">
+                          <label className="label-sample" for="password">Password</label>
                       </div>                    
-                      <img class="input-right-icon" src="/img/hide.svg" />
+                      <img className="input-right-icon" src="/img/hide.svg" />
                   </div>
-                  <div class="btns-group">
-                      <button type="submit" class="btn small-button button-submit">Submit</button>
-                      <button type="reset" class="btn small-button button-reset">Reset</button>
+                  <div className="btns-group">
+                      <button type="submit" className="btn small-button button-submit">Submit</button>
+                      <button type="reset" className="btn small-button button-reset">Reset</button>
                   </div>
               </form>
           </div>
