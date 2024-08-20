@@ -5,6 +5,7 @@
     background: var(--color-secondary);
     padding: 0 24px;
     z-index: 1000;
+    top: 80px;
 }
 
 .appointment-card  h3.appointment-card__title {

@@ -34,15 +34,15 @@ const Notification = ({ children }) => {
     if (storedAppointmentData) {
       setAppointmentData(storedAppointmentData);
     }
-  }); // Empty dependency array ensures useEffect runs only once after initial render
+  }, []); // Empty dependency array ensures useEffect runs only once after initial render
 
   // Return JSX elements to display Navbar, children components, and appointment details if user is logged in
   return (
     <div>
       {/* Render Navbar component */}
-      <Navbar ></Navbar>
+      {/* <Navbar ></Navbar> */}
       {/* Render children components */}
-      {/* {children} */}
+      {children}
       {/* Display appointment details if user is logged in and appointmentData is available */}
       {isLoggedIn && Array.isArray(appointmentData) &&  appointmentData.length > 0 && (
         <>

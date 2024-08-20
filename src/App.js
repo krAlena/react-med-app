@@ -21,16 +21,17 @@ function App() {
         {/* Set up BrowserRouter for routing */}
         <BrowserRouter>
           {/* Display the Navbar component */}
-          <Notification/>
+          <Navbar/>
 
           {/* Set up the Routes for different pages */}
-          <Routes>
-            <Route path="/" element={<Landing_Page/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Sign_Up/>}/>
-            <Route path="/instant-consultation" element={<InstantConsultation/>}/>
-            
-          </Routes>
+          <Notification>
+              <Routes>
+                <Route path="/" element={<Landing_Page/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/signup" element={<Sign_Up/>}/>
+                <Route path="/instant-consultation" element={<InstantConsultation/>}/>
+              </Routes>
+          </Notification>
         </BrowserRouter>
     </div>
   );
