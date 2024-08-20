@@ -95,7 +95,7 @@ const Sign_Up = () => {
           <div className="text-wrapper">Sign up</div>
           <div className="frame">
             <div className="text-wrapper-2">Already a member?</div>
-            <div className="text-wrapper-3">Login</div>
+            <Link to="/login"><div className="text-wrapper-3">Login</div></Link>
           </div>
           
           <div className="form-parent">
