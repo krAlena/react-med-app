@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Navbar.css';
-import '../../global.css';
+// import '../../global.css';
 import { Link } from "react-router-dom";
 
 // import '../../public/img/health_care.png';

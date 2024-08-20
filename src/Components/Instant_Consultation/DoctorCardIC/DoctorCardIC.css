@@ -1,3 +1,152 @@
+/* Doc card */
+.doc-card{
+  position: relative;
+  width: 317px;
+  height: 460px;
+  background-color: #ffffff;
+  border-radius: 8pX;
+  border: 1px solid;
+  border-color: var(--color-grey-5);
+  box-shadow: 2px 4px 8px rgba(9, 44, 76, 0.16)
+}
+.doc-card .overlap-group {
+  /* position: absolute;
+  /* width: 143px; 
+  height: 44px;
+  top: 305px;
+  left: 90px; */
+}
+.doc-card .star {
+  /* position: absolute; */
+  width: 18pX;
+  height: 18px;
+  top: 25px;
+  /* left: 61pX; */
+}
+
+.stars-block {
+  display: flex;
+  row-gap: 2px;
+}
+
+/* .doc-card .text-wrapper.expirience {
+  font-family: var(--text-small-font-family);
+  font-weight: var(--text-small-font-weight);
+  color: var(--color-primary);
+  font-size: var(--text-small-font-size);
+  text-align: center;
+  letter-spacing: var(--text-small-letter-spacing);
+  line-height: var(--text-small-line-height);
+  font-style: var(--text-small-font-style);
+} */
+
+.doc-card .rating{
+  /* position: absolute; */
+  width: 84px;
+  top: 22px;
+  left: 3px;
+
+}
+
+.doc-card .rating-group{
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.doc-card .overlap.mainInfo {
+  position: relative;
+  height: 53px;
+  /* top: 252px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.doc-card .text-wrapper-2.name {
+  position: absolute;
+  width: 148px;
+  top: 0;
+  font-family: var(--text-medium-bold-font aund ront family);
+  left:_ 10px;
+  font-weight: var(--text-medium-bold-font-weight);
+  color: var(--color-primary);
+  font-size: var(--text-medium-bold-font-size);
+  text-align: center;
+  letter-spacing: var(--text-medium-bold-letter-spacing);
+  line-height: var(--text-medium-bold-line-height);
+  white-space: nowrap;
+  font-style: var(--text-medium-bold-font-style);
+}
+
+.doc-card .text-wrapper-3.speciality {
+  margin-top: 27px;
+  font-family: var(--text-small-bold-font-family);
+  font-weight: var(--text-small-bold-font-weight);
+  color: var(--color-grey-3);
+  font-size: var(--text-small-bold-font-size);
+  text-align: center;
+  letter-spacing: var(--text-small-bold-letter-spacing);
+  line-height: var(--text-small-bold-line-height);
+  font-style: var(--text-small-bold-font-style);
+}
+.doc-card .cool-guy{
+  /* position: absolute; */
+  width: 200px;
+  height: 205px;
+  margin-top: 34px;
+  left: 59px;
+}
+.doc-card .small-button {
+  position: absolute;
+  width: 241px;
+  height: 48px;
+  top: 374px;
+  left: 38px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.doc-card .button-sample {
+  position: absolute;
+  top: 13px;
+  left: 70px;
+  font-family: var(--text-small-bold-font-family);
+  font-weight: var(--text-small-bold-font-weight);
+  color: var(--color-white);
+  font-size: var(--text-small-bold-font-size);
+  letter-spacing: var(--text-small-bold-letter-spacing);
+  line-height: var(--text-small-bold-line-height);
+  white-space: nowrap;
+  font-style: var(--text-small-bold-font-style);
+}
+.doc-card .name{
+  /* Dr. Denis Jar */
+
+  position: absolute;
+  width: 148px;
+  height: 29px;
+  left: 85px;
+  top: 253px;
+
+  /* Text - Medium Bold */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  /* or 140% */
+  text-align: center;
+
+  /* Color - Primary */
+  color: #092C4C;
+}
+
+.doc-card .spec{
+
+}
+
 .doctor-card-container {
     width: 300px;
     height: 100%;
