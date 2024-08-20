@@ -1,0 +1,27 @@
+.appointment-card {
+    position: absolute;
+    right: 24px;
+    border-radius: 8px;
+    background: var(--color-secondary);
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+.appointment-card  h3.appointment-card__title {
+    font-family: var(--text-small-bold-font-family);
+    font-weight: var(--text-small-bold-font-weight);
+    color: var(--color-primary);
+    font-size: var(--text-small-bold-font-size);
+    text-align: center;
+    letter-spacing: var(--text-small-bold-letter-spacing);
+    line-height: var(--text-small-bold-line-height);
+    font-style: var(--text-small-bold-font-style);
+}
+
+.appointment-card .text.small.bolder{
+    margin-right: 6px;
+}
+
+.appointment-card .appointment-card__message{
+    margin-top: 6px;
+}

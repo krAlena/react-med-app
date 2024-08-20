@@ -79,6 +79,10 @@ code {
   font-style: var(--text-small-font-style);
 }
 
+.text.small.bolder {
+  font-weight: var(--text-small-bold-font-weight);
+}
+
 input.input-text-wrapper:focus-visible {
   border: none !important;
   outline: none;

@@ -10,6 +10,7 @@ import Landing_Page from './Components/Landing_Page/Landing_Page';
 import Login from './Components/Login/Login';
 import Sign_Up from './Components/Sign_Up/Sign_Up';
 import InstantConsultation from './Components/Instant_Consultation/InstantConsultation';
+import Notification from './Components/Notification/Notification';
 
 // Function component for the main App
 function App() {
@@ -20,7 +21,7 @@ function App() {
         {/* Set up BrowserRouter for routing */}
         <BrowserRouter>
           {/* Display the Navbar component */}
-          <Navbar/>
+          <Notification/>
 
           {/* Set up the Routes for different pages */}
           <Routes>
