@@ -14,6 +14,33 @@
   flex-direction: column;
   align-items: center;
 }
+.bookedInfo .small-button {
+  /* position: absolute; */
+  width: 241px;
+  height: 48px;
+  top: 374px;
+  left: 38px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bookedInfo .button-sample {
+  /* position: absolute; */
+  top: 13px;
+  left: 70px;
+  font-family: var(--text-small-bold-font-family);
+  font-weight: var(--text-small-bold-font-weight);
+  color: var(--color-white);
+  font-size: var(--text-small-bold-font-size);
+  letter-spacing: var(--text-small-bold-letter-spacing);
+  line-height: var(--text-small-bold-line-height);
+  white-space: nowrap;
+  font-style: var(--text-small-bold-font-style);
+}
 .doc-card .star {
   /* position: absolute; */
   width: 18pX;

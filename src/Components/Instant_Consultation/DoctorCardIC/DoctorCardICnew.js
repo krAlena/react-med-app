@@ -54,7 +54,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
       <Popup
           style={{ backgroundColor: '#FFFFFF' }}
           trigger={
-            <button className={`book-appointment-btn small-button${appointments.length > 0 ? 'cancel-appointment' : ''}`}>
+            <button className={`book-appointment-btn small-button ${appointments.length > 0 ? 'cancel-appointment' : ''}`}>
               {appointments.length > 0 ? (
                 <div className="button-sample">Cancel Appointment</div>
               ) : (
@@ -87,7 +87,9 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
-                      <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
+                      <button className="small-button" onClick={() => handleCancel(appointment.id)}>
+                        <div className="button-sample">Cancel Appointment</div>
+                      </button>
                     </div>
                   ))}
                 </>
