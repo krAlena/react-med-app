@@ -9,12 +9,10 @@
   border-color: var(--color-grey-5);
   box-shadow: 2px 4px 8px rgba(9, 44, 76, 0.16)
 }
-.doc-card .overlap-group {
-  /* position: absolute;
-  /* width: 143px; 
-  height: 44px;
-  top: 305px;
-  left: 90px; */
+.bookedInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .doc-card .star {
   /* position: absolute; */
@@ -295,6 +293,7 @@
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
+  margin-top: 32px;
   /* height: auto;
   overflow-y: auto; */
 }
