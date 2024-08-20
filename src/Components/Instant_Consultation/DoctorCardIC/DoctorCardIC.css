@@ -134,9 +134,9 @@
   overflow: hidden;
 }
 .doc-card .button-sample {
-  position: absolute;
+  /* position: absolute;
   top: 13px;
-  left: 70px;
+  left: 70px; */
   font-family: var(--text-small-bold-font-family);
   font-weight: var(--text-small-bold-font-weight);
   color: var(--color-white);
@@ -184,7 +184,7 @@
     margin-bottom: 20px;
   }
   .cancel-appointment {
-    background-color: red;
+    background-color: var(--color-error) !important;
   }
   
   .doctor-card-details-container {

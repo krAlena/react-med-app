@@ -4,6 +4,8 @@ import './AppointmentFormIC.css';
 const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
     const [selectedSlot, setSelectedSlot] = useState(null);
   
     const handleSlotSelection = (slot) => {
@@ -12,9 +14,11 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ doctorName, doctorSpeciality, name, phoneNumber, date, time });
       setName('');
       setPhoneNumber('');
+      setDate('');
+      setTime('');
     };
   
     return (
@@ -41,11 +45,27 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
         </div>
         <div className="form-group">
           <label htmlFor="appDate">Date:</label>
-          <input type="date" id="appDate" name="appDate" required/>
+          <input 
+            type="date" 
+            id="appDate"
+            name="appDate"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="appTime">Time:</label>
-          <input type="time" id="appTime" name="appTime" min="09:00" max="18:00" required />
+          <input 
+            type="time"
+            id="appTime"
+            name="appTime"
+            min="09:00"
+            max="18:00" 
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            required 
+          />
         </div>
         
         <button className='small-button' type="submit"> <div className="button-sample">Book Now</div></button>

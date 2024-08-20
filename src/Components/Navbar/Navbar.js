@@ -59,7 +59,7 @@ const Navbar = () => {
                     <Link to="/"><div className="section">Home</div></Link>
                 </div>
                 <div className="tab">
-                    <div className="section">Appointments</div>
+                    <Link to="/instant-consultation"><div className="section">Appointments</div></Link>
                 </div>
                 <div className="tab">
                     <div className="section">Health Blog</div>

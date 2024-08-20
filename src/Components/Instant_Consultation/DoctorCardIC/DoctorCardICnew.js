@@ -10,6 +10,13 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
+  useEffect(() => {
+    const storedAppointmentData =  JSON.parse(localStorage.getItem('appointmentsData'));
+    if (storedAppointmentData){
+      setAppointments(storedAppointmentData)
+    }
+  },[])
+
   const handleBooking = () => {
     setShowModal(true);
   };
@@ -17,6 +24,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   const handleCancel = (appointmentId) => {
     const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
     setAppointments(updatedAppointments);
+    localStorage.setItem('appointmentsData',  JSON.stringify(updatedAppointments))
   };
 
   const handleFormSubmit = (appointmentData) => {
@@ -26,8 +34,18 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     };
     const updatedAppointments = [...appointments, newAppointment];
     setAppointments(updatedAppointments);
+    localStorage.setItem('appointmentsData', JSON.stringify(updatedAppointments))
     setShowModal(false);
   };
+
+  const isExistAppointmentWithDoc = (appointments, docName) => {
+    let result = false;
+
+    if (Array.isArray(appointments) && appointments.length > 0){
+      result = (appointments.findIndex(el => el.doctorName == docName ) >= 0);
+    }
+    return result;
+  }
 
   return (
     <div className="doc-card">
@@ -54,8 +72,8 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
       <Popup
           style={{ backgroundColor: '#FFFFFF' }}
           trigger={
-            <button className={`book-appointment-btn small-button ${appointments.length > 0 ? 'cancel-appointment' : ''}`}>
-              {appointments.length > 0 ? (
+            <button className={`book-appointment-btn small-button ${isExistAppointmentWithDoc(appointments, name) ? 'cancel-appointment' : ''}`}>
+              {isExistAppointmentWithDoc(appointments, name) ? (
                 <div className="button-sample">Cancel Appointment</div>
               ) : (
                 <div className="button-sample">Book appointment</div>
@@ -63,6 +81,7 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
             </button>
           }
           modal
+          // open={appointments.length > 0 ? handleCancel(appointments[0].id) : showModal }
           open={showModal}
           onClose={() => setShowModal(false)}
         >
@@ -85,8 +104,10 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
                   <h3 style={{ textAlign: 'center' }}>Appointment Booked!</h3>
                   {appointments.map((appointment) => (
                     <div className="bookedInfo" key={appointment.id}>
-                      <p>Name: {appointment.name}</p>
+                      <p>Name: {appointment.doctorName}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
+                      <p>Date: {appointment.date}</p>
+                      <p>Time: {appointment.time}</p>
                       <button className="small-button" onClick={() => handleCancel(appointment.id)}>
                         <div className="button-sample">Cancel Appointment</div>
                       </button>
