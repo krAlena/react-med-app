@@ -7,10 +7,10 @@ const Landing_Page = () => {
         <div className="home">
             <div className="frame">
             <div className="overlap-group">
-                <img className="illustration" src="/img/illustration_medicines.svg" />
+                <img className="illustration" src="/img/illustration_medicines.png" />
                 <button className="medium-button">Get Started</button>
             </div>
-            <img className="illustration-loving" src="/img/illustration_loving.svg" />
+            <img className="illustration-loving" src="/img/illustration_loving.png" />
             <div className="text-wrapper">Your Health</div>
             <div className="div">Our Responsibillity</div>
                 <p className="p">
