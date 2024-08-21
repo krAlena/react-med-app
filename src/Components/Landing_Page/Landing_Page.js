@@ -4,16 +4,16 @@ import "./Landing_Page.css"; // Importing the CSS styles for the Landing_Page co
 // Defining the Function component Landing_Page
 const Landing_Page = () => {
     return (
-        <div class="home">
-            <div class="frame">
-            <div class="overlap-group">
-                <img class="illustration" src="/img/illustration_medicines.svg" />
-                <button class="medium-button">Get Started</button>
+        <div className="home">
+            <div className="frame">
+            <div className="overlap-group">
+                <img className="illustration" src="/img/illustration_medicines.svg" />
+                <button className="medium-button">Get Started</button>
             </div>
-            <img class="illustration-loving" src="/img/illustration_loving.svg" />
-            <div class="text-wrapper">Your Health</div>
-            <div class="div">Our Responsibillity</div>
-                <p class="p">
+            <img className="illustration-loving" src="/img/illustration_loving.svg" />
+            <div className="text-wrapper">Your Health</div>
+            <div className="div">Our Responsibillity</div>
+                <p className="p">
                     Forem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis
                     tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
                     risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
